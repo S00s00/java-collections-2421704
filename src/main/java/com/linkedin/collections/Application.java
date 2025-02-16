@@ -16,14 +16,25 @@ public class Application {
 		Collection<Room> rooms = new ArrayList<>(Arrays.asList(cambridge, oxford, victoria, manchester));
 		oxford.setPetFriendly(true);
 		victoria.setPetFriendly(true);
-		
-		for(Room room : rooms) {
+		//imparative style
+		// for(Room room : rooms) {
 			
-			if(room.isPetFriendly()) {
-				System.out.println(room.getName());
-			}
-			
-		}
+		// 	if(room.isPetFriendly()) {
+		// 		System.out.println(room.getName());
+		// 	}
+		// }
+
+		// rooms.stream().filter(new Predicate<Room>() {
+		// 	@Override
+		// 	public boolean test(Room room) {
+		// 		return room.isPetFriendly();
+		// 	}
+		// }).forEach(new Consumer<Room>(){
+		// 	@Override
+		// 	public void accept(Room room) {
+		// 	System.out.println(room.getName());
+		// 	}
+		// });
 		
 	}
 }
