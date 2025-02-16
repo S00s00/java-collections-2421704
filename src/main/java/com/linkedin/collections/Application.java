@@ -18,15 +18,26 @@ public class Application {
 		oxford.setPetFriendly(true);
 		victoria.setPetFriendly(true);
 		
-		for(Room room : rooms) {
-			
-			if(room.isPetFriendly()) {
-				rooms.remove(room);
+		Iterator<Room> iterator = rooms.iterator();
+		while (iterator.hasNext()) {
+			Room room =  iterator.next();
+			if(room.isPetFriendly()){
+				iterator.remove();
 			}
 			
 		}
+
+		// Collection<Room> removeRooms =  new ArrayList<>();
+		// for(Room room : rooms) {
+			
+		// 	if(room.isPetFriendly()) {
+		// 		removeRooms.add(room);
+		// 	}
+			
+		// }
+		// rooms.removeAll(removeRooms);
 		
-		System.out.println(rooms);
+		rooms.stream().forEach(r-> System.out.println(r.getName()));
 		
 	}
 }
