@@ -1,5 +1,7 @@
 package com.linkedin.collections;
 
+import java.util.Objects;
+
 public class Room {
 
 	private String name;
@@ -59,5 +61,31 @@ public class Room {
 	public String toString() {
 		return "Room [name=" + name + ", type=" + type + ", capacity=" + capacity + ", rate=" + rate + "]";
 	}
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 67 * hash + Objects.hashCode(this.name);
+        hash = 67 * hash + Objects.hashCode(this.type);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Room other = (Room) obj;
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        return Objects.equals(this.type, other.type);
+    }
 
 }
