@@ -6,9 +6,9 @@ import java.util.stream.Collectors;
 
 public class GuestService {
 
-	private static List<Guest> checkinList = new ArrayList<>(100);
+	private  List<Guest> checkinList = new ArrayList<>(100);
 
-	public static List<Guest> filterByFavoriteRoom(List<Guest> guests, Room room) {
+	public  List<Guest> filterByFavoriteRoom(List<Guest> guests, Room room) {
 
 		/*
 		 *  1. Returns a new collection that contains guests from the provided collection
@@ -20,7 +20,7 @@ public class GuestService {
 		collect(Collectors.toList()); 
 	}
 
-	public void checkIn(Guest guest) {
+	public  void checkIn(Guest guest) {
 		
 		/*
 		 *  2. Adds a guest to the checkinList, placing members of the loyalty program
