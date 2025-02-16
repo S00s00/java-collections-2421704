@@ -1,5 +1,6 @@
 package com.linkedin.collections;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Application {
@@ -11,6 +12,19 @@ public class Application {
 		Guest sonia = new Guest("Sonia", "Doe", true);
 		Guest siri = new Guest("Siri", "Doe", true);
 
+		List<Guest> checkinList =  new ArrayList<>(100);
+		checkinList.add(john);
+		checkinList.add(maria);
+		print(checkinList);
+		checkinList.add(0,sonia);
+		print(checkinList);
+		checkinList.get(2).setLoyaltyProgramMember(true);
+		print(checkinList);
+		checkinList.addAll(1,List.of(maria,siri));
+		print(checkinList);
+		checkinList.remove(checkinList.size() - 1);
+		print(checkinList);
+		System.out.println(checkinList.indexOf(john));
 
 	}
 
