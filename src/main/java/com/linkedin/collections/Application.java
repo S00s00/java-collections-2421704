@@ -3,6 +3,7 @@ package com.linkedin.collections;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 public class Application {
 
@@ -22,9 +23,23 @@ public class Application {
 		rooms.stream()
 			.filter(Room::isPetFriendly)
 			.forEach(room -> petFriendlyRooms.add(room));
-		
 		petFriendlyRooms.stream()
 			.forEach(r -> System.out.println(r.getName()));
+		
+		// using collect
+		rooms.stream().
+		filter(Room::isPetFriendly).
+		collect(Collectors.toList());
+
+		petFriendlyRooms.stream().
+			map(r-> r.getName()).
+			forEach(System.out::println);
+		
+		//geting total ratings
+		double total = petFriendlyRooms.stream().
+			mapToDouble(Room::getRate).sum();
+				
+			System.out.println(total);
 		
 	}
 }
