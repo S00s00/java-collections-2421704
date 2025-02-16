@@ -1,5 +1,7 @@
 package com.linkedin.collections;
 
+import java.util.Comparator;
+import java.util.PriorityQueue;
 import java.util.Queue;
 
 public class Application {
@@ -11,7 +13,19 @@ public class Application {
 		Guest sonia = new Guest("Sonia", "Doe", true); //loyalty program
 		Guest siri = new Guest("Siri", "Doe", true); //loyalty program
 
+		Comparator<Guest> programComp =  Comparator.comparing(Guest:: isLoyaltyProgramMember).reversed();
 
+		Queue<Guest> checkinQueue = new PriorityQueue<>(programComp);
+		checkinQueue.offer(john);
+		checkinQueue.offer(bob);
+		checkinQueue.offer(sonia);
+		checkinQueue.offer(siri);
+		print(checkinQueue);
+
+		Guest guest =  checkinQueue.poll();
+		System.out.println(guest);
+
+		print(checkinQueue);
 
 	}
 
