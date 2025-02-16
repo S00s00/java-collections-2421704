@@ -20,10 +20,14 @@ public class Application {
 		// System.out.println(iterator.next().getName());
 		// System.out.println(iterator.next().getName());
 		
-		while (iterator.hasNext()) {
-			Room room =  iterator.next();
+		// while (iterator.hasNext()) {
+		// 	Room room =  iterator.next();
+		// 	System.out.println(room.getName());	
+		// }
+
+		for (Room room : rooms) {
 			System.out.println(room.getName());
-			
 		}
+
 	}
 }
