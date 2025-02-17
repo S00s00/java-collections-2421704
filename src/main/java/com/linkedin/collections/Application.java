@@ -1,6 +1,7 @@
 package com.linkedin.collections;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Application {
@@ -16,9 +17,14 @@ public class Application {
 		List<Room> rooms = new ArrayList<>(List.of(piccadilly, oxford1, cambridge, victoria, oxford));
 		rooms.sort(Room.RATE_COMPARATOR);
 		
+		Room maxico =  new Room("Maxico", "Premiere Room", 3, 450.0);
+		int result = Collections.binarySearch(rooms, cambridge, Room.RATE_COMPARATOR);
+
+		rooms.add(Math.abs(++result),maxico);
+		System.out.println("Result"+ result);
 		
-		
-		
+		System.out.println("Min" + Collections.min(rooms,Room.RATE_COMPARATOR).getName());
+		System.out.println("Max" + Collections.max(rooms,Room.RATE_COMPARATOR).getName());
 		
 		System.out.format("%n%n--List Contents--%n");
 		rooms.stream()
