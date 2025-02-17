@@ -1,6 +1,6 @@
 package com.linkedin.collections;
 
-public class Room {
+public class Room implements Comparable<Room> {
 
 	private String name;
 
@@ -93,6 +93,14 @@ public class Room {
 		if (Double.doubleToLongBits(rate) != Double.doubleToLongBits(other.rate))
 			return false;
 		return true;
+	}
+
+	@Override
+	public int compareTo(Room o) {
+	int result = this.getName().compareTo(o.getName());
+	
+	return result != 0 ? result : this.getType().compareTo(o.getType()) ;
+
 	}
 
 }
